@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Berkeley - Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Matthew Berkeley</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#cv" class="nav-link">CV</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#git-activity" class="nav-link">Activity</a></li>
+                <li><a href="#interests" class="nav-link">Interests</a></li>
+                <li><a href="#reading" class="nav-link">Reading</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="images/matthew_headshot.jpeg" alt="Matthew Berkeley">
+            </div>
+            <h1 class="hero-title">
+                <span class="wave">👋</span>
+                Hi, I'm <span class="gradient-text">Matthew</span>
+            </h1>
+            <p class="hero-subtitle">Full Stack Software Developer | Data Scientist | Problem Solver</p>
+            <p class="hero-description">Passionate about creating elegant solutions to complex problems</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="social-links">
+                <a href="https://gitlab.com/berkelem" class="social-icon"><i class="fab fa-gitlab"></i></a>
+                <a href="https://github.com/berkelem" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/matthew-berkeley/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/mberkeley_sib" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:matthewrberkeley@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">I'm a passionate developer with a love for creating innovative solutions.</p>
+                    <p>The world of software development is changing incredibly quickly. I'm excited to build new applications and enhance user experience in everything from the scientific and medical domains to educational tools and commercial applications. It has never been easier to learn new skills and harness the enormous potential of modern technology. 
+                        My background is in development for cutting-edge scientific challenges, with experience leading a data analysis project at NASA and leading the development of a hugely successful genomics tool called BUSCO. My approach combines technical excellence with creative problem-solving to deliver exceptional results.</p>
+                    <p>When I'm not coding, you'll find me running, reading and writing.</p>
+                    <div class="skills">
+                        <h3>Core Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv">
+        <div class="container">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <div class="cv-content">
+                <!-- Experience -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title">
+                        <i class="fas fa-briefcase"></i> Experience
+                    </h3>
+                    <div class="cv-items">
+                        <div class="cv-item">
+                            <div class="cv-item-header">
+                                <h4> Software Developer</h4>
+                                <span class="cv-period">2018 - Present</span>
+                            </div>
+                            <p class="cv-company">Swiss Institute of Bioinformatics</p>
+                            <ul class="cv-description">
+                                <li>Lead developer for <a href="https://busco.ezlab.org">BUSCO</a>, the world-leading software for assessing the completeness of genome assemblies</li>
+                                <li>Implemented CI/CD pipelines, unit testing infrastructure and managed distribution channels on GitLab, Conda and Docker</li>
+                                <li>Created cutting edge data products for use in orthology research and genomic assembly quality control</li>
+                                <li>Collaborated with the AWS Open Data Sponsorship Program to make datasets publicly available through AWS endpoints</li>
+                                <li>Managed high-throughput analysis pipelines, benchmarking and release cycles of BUSCO software and datasets</li>
+                                <li>Incorporated statistical usage tracking for BUSCO using PostgreSQL</li>
+                                <li>Engaged with the global user community through the Gitlab issue board, Twitter and presentations at international conferences</li>
+                                <li>Developed an interactive plot dashboard for <a href="https://lemmi.ezlab.org">LEMMI</a> using Vue3.js and Plotly</li>
+                            </ul>
+                        </div>
+                        <div class="cv-item">
+                            <div class="cv-item-header">
+                                <h4>Python Lecturer</h4>
+                                <span class="cv-period">2020 - Present</span>
+                            </div>
+                            <p class="cv-company">University of Geneva</p>
+                            <ul class="cv-description">
+                                <li>Taught an Introduction to Python course for third-year undergraduate biomedical science students</li>
+                                <li>Enhanced the learning experience by incorporating JupyterHub for interactive learning</li>
+                            </ul>
+                        </div>
+                        <div class="cv-item">
+                            <div class="cv-item-header">
+                                <h4>Graduate Research Assistant</h4>
+                                <span class="cv-period">2013 - 2018</span>
+                            </div>
+                            <p class="cv-company">NASA Goddard Space Flight Center/Catholic University of America</p>
+                            <ul class="cv-description">
+                                <li>Successfully obtained both an MSc and a PhD in Physics</li>
+                                <li>Developed efficient, high-throughput data processing pipelines for satellite imagery</li>
+                                <li>Created new full-sky map products from over 60 TB of satellite data</li>
+                                <li>Collaborated with a team of world-leading scientists, driving experimental data analysis for testing cutting-edge cryogenic detector technology</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </h3>
+                    <div class="cv-items">
+                        <div class="cv-item">
+                            <div class="cv-item-header">
+                                <h4>PhD in Physics</h4>
+                                <span class="cv-period">2015 - 2018</span>
+                            </div>
+                            <p class="cv-company">Catholic University of America</p>
+                            <p class="cv-description">Working with the Cosmology Division at NASA Goddard Space Flight Center, I created new full-sky maps in the near infrared</p>
+                        </div>
+                        <div class="cv-item">
+                            <div class="cv-item-header">
+                                <h4>MSc in Physics</h4>
+                                <span class="cv-period">2013 - 2015</span>
+                            </div>
+                            <p class="cv-company">Catholic University of America</p>
+                            <p class="cv-description">Advanced Mathematical Methods, Quantum Mechanics, Statistical Thermodynamics, Electromagnetic Theory, Newtonian Mechanics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title">
+                        <i class="fas fa-certificate"></i> Certifications
+                    </h3>
+                    <div class="certifications">
+                        <div class="cert-item">Deep Learning Specialization - Coursera & Deeplearning.ai (Jul 2018)</div>
+                        <div class="cert-item">Neural Networks and Deep Learning - Coursera & Deeplearning.ai (Jan 2018)</div>
+                        <div class="cert-item">Convolutional Neural Networks - Coursera & Deeplearning.ai (May 2018)</div>
+                        <div class="cert-item">Sequence Models - Coursera & Deeplearning.ai (Jul 2018)</div>
+                        <div class="cert-item">MLOps Essentials: Model Development and Integration - LinkedIn Learning (Jul 2024)</div>
+                        <div class="cert-item">Learning Kubernetes - LinkedIn Learning (Dec 2024)</div>
+                        <div class="cert-item">Introduction to Large Language Models - LinkedIn Learning (Feb 2024)</div>
+                        <div class="cert-item">Microsoft Azure Fundamentals (AZ-900) Cert Prep - LinkedIn Learning (Mar 2024)</div>
+                        <div class="cert-item">Learning Docker Compose - LinkedIn Learning (Jan 2023)</div>
+                        <div class="cert-item">Redis Essential Training - LinkedIn Learning (Mar 2024)</div>
+                        <div class="cert-item">NoSQL Essential Training - LinkedIn Learning (May 2024)</div>
+                        <div class="cert-item">Functional Programming with Java - LinkedIn Learning (Oct 2022)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-download">
+                <a href="Matthew_Berkeley_CV_2025.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download Full CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Here are some of my recent works</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>BUSCO</h3>
+                        <p>Benchmarking Universal Single-Copy Orthologs - A widely-used bioinformatics tool for assessing genome assembly and annotation completeness through evolutionary-informed expectations.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Bioinformatics</span>
+                            <span>HMM</span>
+                            <span>OrthoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://busco.ezlab.org/" target="_blank" class="project-link"><i class="fas fa-globe"></i> Website</a>
+                            <a href="https://gitlab.com/ezlab/busco" target="_blank" class="project-link"><i class="fab fa-gitlab"></i> GitLab</a>
+                            <a href="https://www.youtube.com/watch?v=9SjVY3BT8JU" target="_blank" class="project-link"><i class="fas fa-video"></i> Tutorial</a>
+                            <a href="https://scholar.google.ch/citations?user=WbkbmUEAAAAJ" target="_blank" class="project-link"><i class="fas fa-graduation-cap"></i> Citations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>LEMMI</h3>
+                        <p>A modern, interactive web platform for comparative genomics visualization and analysis. Features a responsive Vue.js front-end with dynamic Plotly dashboards for exploring genome data and evolutionary relationships.</p>
+                        <div class="project-tech">
+                            <span>Vue 3</span>
+                            <span>JavaScript</span>
+                            <span>Plotly</span>
+                            <span>HTML/CSS</span>
+                            <span>Dashboard</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://lemmi.ezlab.org/" target="_blank" class="project-link"><i class="fas fa-globe"></i> Website</a>
+                            <a href="https://gitlab.com/ezlab/lemmi-v2" target="_blank" class="project-link"><i class="fab fa-gitlab"></i> GitLab</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Git Activity Section -->
+    <section id="git-activity" class="git-activity">
+        <div class="container">
+            <h2 class="section-title">Development Activity</h2>
+            <p class="section-subtitle">My contributions across GitLab and GitHub</p>
+            
+            <div class="activity-container">
+                <!-- GitLab Activity -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <i class="fab fa-gitlab"></i>
+                        <h3>GitLab Activity</h3>
+                    </div>
+                    <div class="activity-plot" id="gitlab-plot">
+                        <div class="gitlab-calendar-container">
+                            <div id="gitlab-calendar" class="contribution-graph gitlab-graph">
+                                <div class="calendar-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <p>Loading GitLab activity...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon gitlab-icon">
+                                    <i class="fas fa-code-branch"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Profile</span>
+                                    <a href="https://gitlab.com/berkelem" target="_blank" class="stat-link">@berkelem</a>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon gitlab-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Public Contributions</span>
+                                    <span class="stat-value" id="gitlab-total">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Activity -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub Activity</h3>
+                    </div>
+                    <div class="activity-plot" id="github-plot">
+                        <img src="https://ghchart.rshah.org/berkelem" alt="GitHub Contribution Graph" class="contribution-graph">
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon github-icon">
+                                    <i class="fas fa-code-branch"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Profile</span>
+                                    <a href="https://github.com/berkelem" target="_blank" class="stat-link">@berkelem</a>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon github-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Total Contributions</span>
+                                    <span class="stat-value" id="github-total">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-footer">
+                <p><i class="fas fa-info-circle"></i> Contribution graphs update automatically and show public activity from the past year. GitLab graph shows public contributions only.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="interests">
+        <div class="container">
+            <h2 class="section-title">Interests & Hobbies</h2>
+            <p class="section-subtitle">What I'm passionate about beyond coding</p>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Running</h3>
+                    <p>I've completed three marathons - Paris 2013, Marine Corps Washington DC 2014 and Dublin 2022.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Piano</h3>
+                    <p>I have a Diploma in Piano Performance from Trinity College London and Advanced Grade 2 from the Associated Board of the Royal Schools of Music.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-table-tennis"></i>
+                    </div>
+                    <h3>Table Tennis</h3>
+                    <p>I play in a local club.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Being a Dad</h3>
+                    <p>I love camping, skiing, going to the theatre, playing with, reading to, and having adventures with my four children.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Writing</h3>
+                    <p>I enjoy creative writing.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Reading</h3>
+                    <p>I read broadly and like discussing books with other bookworms. See <a href="#reading" style="color: var(--primary-color); text-decoration: underline;">Reading section</a> below.</p>
+                </div>
+            </div>
+
+            <!-- Reading Section -->
+            <!-- 
+                This section automatically loads books from your Goodreads RSS feed!
+                - Currently Reading: Shows books from "currently-reading" shelf
+                - Recent Reviews: Shows books from "read" shelf with ratings/reviews
+                - Updates every 30 minutes automatically
+                - See GOODREADS_INTEGRATION.md for full documentation
+            -->
+            <div id="reading" class="reading-section">
+                <div class="reading-header">
+                    <h3><i class="fas fa-book"></i> Currently Reading & Recent Reviews</h3>
+                    <a href="https://www.goodreads.com/user/show/6157820-matthew" target="_blank" class="goodreads-link">
+                        <i class="fab fa-goodreads"></i> View My Goodreads Profile
+                    </a>
+                </div>
+
+                <div class="reading-content">
+                    <!-- Currently Reading -->
+                    <div class="reading-subsection">
+                        <h4>Currently Reading</h4>
+                        <div class="books-grid" id="currently-reading">
+                            <!-- Books will be dynamically loaded from Goodreads RSS feed -->
+                            <div class="book-card loading">
+                                <div class="book-cover-placeholder">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="book-info">
+                                    <h5>Loading books...</h5>
+                                    <p class="book-author">Please check back soon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Reviews -->
+                    <div class="reading-subsection">
+                        <h4>Recent Reviews</h4>
+                        <div class="books-grid" id="recent-reviews">
+                            <!-- Book reviews will be loaded here -->
+                            <div class="book-card">
+                                <div class="book-cover">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442726934i/4099.jpg" alt="The Pragmatic Programmer">
+                                </div>
+                                <div class="book-info">
+                                    <h5>The Pragmatic Programmer</h5>
+                                    <p class="book-author">by David Thomas, Andrew Hunt</p>
+                                    <div class="book-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>5/5</span>
+                                    </div>
+                                    <p class="book-review">"An essential read for any software developer. Filled with timeless wisdom and practical advice that has shaped my approach to writing clean, maintainable code."</p>
+                                    <a href="#" class="book-link" target="_blank">Read Full Review →</a>
+                                </div>
+                            </div>
+
+                            <div class="book-card">
+                                <div class="book-cover">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1387771681i/3735293.jpg" alt="Clean Code">
+                                </div>
+                                <div class="book-info">
+                                    <h5>Clean Code</h5>
+                                    <p class="book-author">by Robert C. Martin</p>
+                                    <div class="book-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>4.5/5</span>
+                                    </div>
+                                    <p class="book-review">"A comprehensive guide to writing better code. Uncle Bob's principles have become fundamental to my development practice."</p>
+                                    <a href="#" class="book-link" target="_blank">Read Full Review →</a>
+                                </div>
+                            </div>
+
+                            <div class="book-card">
+                                <div class="book-cover">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1361039191i/44936.jpg" alt="Designing Data-Intensive Applications">
+                                </div>
+                                <div class="book-info">
+                                    <h5>Designing Data-Intensive Applications</h5>
+                                    <p class="book-author">by Martin Kleppmann</p>
+                                    <div class="book-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>5/5</span>
+                                    </div>
+                                    <p class="book-review">"Deep dive into the architecture of modern data systems. Incredibly detailed and well-researched. A must-read for anyone working with distributed systems."</p>
+                                    <a href="#" class="book-link" target="_blank">Read Full Review →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's create something amazing together</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>matthewrberkeley@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Vétraz-Monthoux, France, just outside Geneva, Switzerland</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 M. Berkeley. All rights reserved.</p>
+            <p>Built with <i class="fas fa-heart"></i> and passion</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
