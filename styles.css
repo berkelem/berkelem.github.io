@@ -34,7 +34,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
@@ -900,6 +900,19 @@ section {
 
 .github-icon {
     background: linear-gradient(135deg, #333 0%, #24292e 100%);
+}
+
+/* Contact social icons on light background */
+.contact-social .social-icon {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+    border: 2px solid var(--border-color);
+}
+
+.contact-social .social-icon:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 .stat-info {

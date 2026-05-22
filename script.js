@@ -120,12 +120,11 @@ contactForm.addEventListener('submit', (e) => {
         return;
     }
     
-    // Simulate form submission
-    showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+    // Open email client with pre-filled content
+    const mailtoLink = `mailto:matthewrberkeley@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    window.open(mailtoLink, '_self');
+    showNotification('Opening your email client…', 'success');
     contactForm.reset();
-    
-    // In a real application, you would send this data to a server
-    console.log('Form submitted:', { name, email, subject, message });
 });
 
 // Email validation helper
