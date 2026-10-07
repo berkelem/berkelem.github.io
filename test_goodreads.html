@@ -91,7 +91,6 @@
 
     <script>
         const GOODREADS_USER_ID = '6157820-matthew';
-        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
         function updateStatus(message, type = 'loading') {
             const status = document.getElementById('status');
@@ -109,46 +108,21 @@
             results.appendChild(resultDiv);
         }
 
-        function parseGoodreadsXML(xmlText) {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-            const items = xmlDoc.querySelectorAll('item');
-            
-            const books = [];
-            items.forEach(item => {
-                const title = item.querySelector('title')?.textContent || 'Unknown Title';
-                const author = item.querySelector('author_name')?.textContent || 'Unknown Author';
-                const rating = item.querySelector('user_rating')?.textContent || '0';
-                const review = item.querySelector('user_review')?.textContent || '';
-                const cover = item.querySelector('book_large_image_url')?.textContent || '';
-                
-                books.push({
-                    title,
-                    author,
-                    rating: parseFloat(rating),
-                    hasReview: review.length > 0,
-                    hasCover: cover.length > 0
-                });
-            });
-            
-            return books;
-        }
-
-        async function fetchGoodreadsRSS(shelf, limit = 10) {
-            const rssUrl = `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=${shelf}&per_page=${limit}`;
-            const proxiedUrl = CORS_PROXY + encodeURIComponent(rssUrl);
-            
+        async function fetchGoodreadsBooks(shelf) {
             updateStatus(`📥 Fetching ${shelf} shelf from Goodreads...`, 'loading');
             
             try {
-                const response = await fetch(proxiedUrl);
+                const response = await fetch(`goodreads.json?v=${Date.now()}`, { cache: 'no-store' });
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
-                const xmlText = await response.text();
-                const books = parseGoodreadsXML(xmlText);
+                const data = await response.json();
+                const books = shelf === 'read' ? data.recentReviews : data.currentlyReading;
+                if (!Array.isArray(books)) {
+                    throw new Error('Goodreads snapshot has an invalid format');
+                }
                 
                 updateStatus(`✅ Success! Loaded ${books.length} books from ${shelf} shelf`, 'success');
                 return books;
@@ -160,16 +134,17 @@
         }
 
         async function testCurrentlyReading() {
-            const books = await fetchGoodreadsRSS('currently-reading', 5);
+            const books = await fetchGoodreadsBooks('currently-reading');
             addResult('Currently Reading Books', {
-                count: books.length,
+                count: books?.length ?? 0,
                 books: books
             });
         }
 
         async function testRecentReviews() {
-            const books = await fetchGoodreadsRSS('read', 6);
-            const reviewed = books.filter(b => b.rating > 0 || b.hasReview);
+            const books = await fetchGoodreadsBooks('read');
+            if (!books) return;
+            const reviewed = books.filter(b => b.rating > 0 || b.review);
             addResult('Recent Reviews', {
                 totalRead: books.length,
                 withReviews: reviewed.length,

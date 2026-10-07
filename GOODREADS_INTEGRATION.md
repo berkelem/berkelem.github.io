@@ -29,15 +29,15 @@ The system fetches data from:
 
 ### RSS Feed Integration
 
-1. **CORS Proxy**: Uses `api.allorigins.win` to bypass browser CORS restrictions
-2. **XML Parsing**: Parses Goodreads RSS feeds to extract book data
-3. **Dynamic Rendering**: Automatically creates book cards with covers, ratings, and reviews
-4. **Auto-Refresh**: Updates every 30 minutes to stay current with your Goodreads activity
+1. **Scheduled fetch**: GitHub Actions reads the public Goodreads RSS feeds every six hours
+2. **Same-origin snapshot**: The workflow commits parsed data to `goodreads.json`
+3. **Dynamic rendering**: The website loads that JSON from its own GitHub Pages origin
+4. **Auto-Refresh**: The page checks for an updated snapshot every 30 minutes
 
 ### Data Flow
 
 ```
-Your Goodreads Shelf → RSS Feed → CORS Proxy → XML Parser → Website Display
+Your Goodreads Shelf → RSS Feed → GitHub Actions → goodreads.json → Website Display
 ```
 
 ## 📝 To Update Your Books
@@ -46,7 +46,7 @@ Simply update your Goodreads shelves:
 
 1. **Add to "currently-reading" shelf** → Appears in "Currently Reading" section
 2. **Mark as "read" with rating/review** → Appears in "Recent Reviews" section
-3. **Wait a moment** → Website automatically fetches and displays (or refresh the page)
+3. **Wait for the scheduled workflow** (up to six hours), or run **Update Goodreads data** manually from the repository's Actions tab
 
 No code changes needed! 🎉
 
@@ -77,19 +77,14 @@ If you just updated your Goodreads and want to see changes immediately:
 
 ### How the RSS Feed Parser Works
 
-The integration uses these key components:
-
-1. **CORS Proxy**: `api.allorigins.win` to fetch RSS feeds
-2. **XML Parser**: Browser's native DOMParser to parse XML
-3. **Data Extraction**: Queries specific XML nodes for book data
-4. **Error Handling**: Graceful fallbacks if data can't be loaded
+The GitHub Actions updater in `scripts/update-goodreads.mjs` fetches and parses the public RSS feeds. The browser reads the generated `goodreads.json` from the same origin, avoiding browser CORS restrictions and unreliable public CORS proxies.
 
 ### Code Structure
 
 ```javascript
 // In script.js
 const GOODREADS_USER_ID = '6157820-matthew';
-const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+// Data is read from the same-origin goodreads.json snapshot.
 
 // Fetches and parses RSS feed
 async function fetchGoodreadsRSS(shelf, limit) { ... }
@@ -172,43 +167,9 @@ function cacheBooks(shelf, books) {
 }
 ```
 
-### Option 3: Backend Proxy (More Reliable)
+### Automated updates
 
-For production use, consider setting up your own backend:
-
-**Benefits:**
-- More reliable than public CORS proxy
-- Can add caching
-- Better performance
-- More control
-
-**Example with Netlify Functions:**
-
-```javascript
-// netlify/functions/goodreads.js
-const fetch = require('node-fetch');
-
-exports.handler = async (event) => {
-    const { shelf, userId } = event.queryStringParameters;
-    const rssUrl = `https://www.goodreads.com/review/list_rss/${userId}?shelf=${shelf}`;
-    
-    try {
-        const response = await fetch(rssUrl);
-        const text = await response.text();
-        
-        return {
-            statusCode: 200,
-            body: text,
-            headers: { 'Content-Type': 'application/xml' }
-        };
-    } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to fetch' })
-        };
-    }
-};
-```
+The `Update Goodreads data` workflow can also be run manually from the GitHub Actions tab. It fetches both shelves and commits a new snapshot only when the data changes. The workflow needs repository Contents write permission to push the update.
 
 ## 📝 Tips for Best Results
 
@@ -221,8 +182,7 @@ exports.handler = async (event) => {
 ## 🔗 Useful Resources
 
 - [Goodreads RSS Feed Format](https://www.goodreads.com/review/list_rss/)
-- [API AllOrigins CORS Proxy](https://allorigins.win/)
-- [DOMParser API](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser)
+- [GitHub Actions scheduled workflows](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#schedule)
 - [Font Awesome Icons](https://fontawesome.com/icons?d=gallery&q=book)
 
 ## 🐛 Troubleshooting
@@ -235,9 +195,9 @@ exports.handler = async (event) => {
 3. Look for error messages
 
 **Common issues:**
-- CORS proxy is down → Try alternative proxy
-- Goodreads RSS feed format changed → Check console for parsing errors
-- Network connectivity issues → Check internet connection
+- No snapshot yet → Run **Update Goodreads data** from the repository's Actions tab
+- Workflow failed → Check the latest workflow run for Goodreads or push-permission errors
+- Network connectivity issues → Check the browser connection and reload
 
 ### Wrong Books Showing?
 
@@ -250,13 +210,6 @@ exports.handler = async (event) => {
 - Goodreads image URLs may expire or change
 - The code has fallback placeholders for missing images
 - Images load from Goodreads CDN (should be reliable)
-
-### CORS Errors?
-
-If `api.allorigins.win` is down, try alternatives:
-- `https://corsproxy.io/?` 
-- `https://cors-anywhere.herokuapp.com/`
-- Set up your own backend proxy (recommended for production)
 
 ## 🔄 Updating Your User ID
 

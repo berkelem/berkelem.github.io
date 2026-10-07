@@ -2,7 +2,7 @@
 
 ## What Was Implemented
 
-Your website now has **fully automatic Goodreads integration** that fetches and displays your reading data in real-time!
+Your website displays Goodreads shelf data from a same-origin JSON snapshot. GitHub Actions refreshes the snapshot every six hours and can also be run manually.
 
 ## 🎯 Key Features
 
@@ -59,14 +59,14 @@ Your website now has **fully automatic Goodreads integration** that fetches and 
 ### How It Works
 
 ```
-Goodreads Profile → RSS Feed → CORS Proxy → XML Parser → Your Website
-     (You update)      (Auto)    (api.allorigins.win)  (DOMParser)   (Display)
+Goodreads Profile → RSS Feed → GitHub Actions → goodreads.json → Your Website
+   (You update)      (Auto)     (every six hours)      (Display)
 ```
 
 1. You update your Goodreads shelves
 2. Goodreads generates RSS feed
-3. Website fetches through CORS proxy
-4. XML parser extracts book data
+3. GitHub Actions fetches the feeds and writes a JSON snapshot
+4. The website loads the snapshot from its own origin
 5. Books displayed in beautiful cards
 6. Refreshes automatically every 30 minutes
 
@@ -104,7 +104,7 @@ Just update your Goodreads:
 ```javascript
 // In script.js
 const GOODREADS_USER_ID = '6157820-matthew';
-const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+// Data is served from goodreads.json, refreshed by GitHub Actions.
 
 // Currently Reading: Shows 5 books
 await fetchGoodreadsRSS('currently-reading', 5);
