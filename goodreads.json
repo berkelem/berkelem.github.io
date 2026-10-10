@@ -1,15 +1,6 @@
 {
   "currentlyReading": [
     {
-      "title": "The Lion, the Witch and the Wardrobe (Chronicles of Narnia, #1)",
-      "author": "C.S. Lewis",
-      "link": "https://www.goodreads.com/review/show/1962229107?utm_medium=api&utm_source=rss",
-      "rating": 4,
-      "review": "",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353029077l/100915.jpg",
-      "averageRating": 4.24
-    },
-    {
       "title": "Nature Boy: A journey of birdsong and belonging",
       "author": "Seán Ronayne",
       "link": "https://www.goodreads.com/review/show/8991722178?utm_medium=api&utm_source=rss",
@@ -44,9 +35,27 @@
       "review": "",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1409595801l/17251139.jpg",
       "averageRating": 4.5
+    },
+    {
+      "title": "La librairie des livres interdits",
+      "author": "Marc Levy",
+      "link": "https://www.goodreads.com/review/show/7194082166?utm_medium=api&utm_source=rss",
+      "rating": 0,
+      "review": "",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729030237l/220266810._SX318_.jpg",
+      "averageRating": 3.58
     }
   ],
   "recentReviews": [
+    {
+      "title": "The Lion, the Witch and the Wardrobe (Chronicles of Narnia, #1)",
+      "author": "C.S. Lewis",
+      "link": "https://www.goodreads.com/review/show/1962229107?utm_medium=api&utm_source=rss",
+      "rating": 4,
+      "review": "I read the full Narnia series when I was about eight, and now I'm finally getting to revisit it as I read them to my children at bedtime. I am appreci...",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353029077l/100915.jpg",
+      "averageRating": 4.24
+    },
     {
       "title": "MODERN SHORT STORIES",
       "author": "Jim Hunter",
@@ -91,15 +100,6 @@
       "review": "This is the third biography by Anthony Everitt I have listened to, after Cicero: The Life and Times of Rome's Greatest Politician and Augustus: The Li...",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567497816l/50074921._SX318_SY475_.jpg",
       "averageRating": 3.74
-    },
-    {
-      "title": "The Metamorphosis",
-      "author": "Franz Kafka",
-      "link": "https://www.goodreads.com/review/show/8681437303?utm_medium=api&utm_source=rss",
-      "rating": 3,
-      "review": "My first Kafka. As expected it was surreal, but I also found it well-written and thought-provoking.Gregor Samsa wakes up one morning to find he has be...",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646444605l/485894._SY475_.jpg",
-      "averageRating": 3.92
     }
   ]
 }
