@@ -1,15 +1,6 @@
 {
   "currentlyReading": [
     {
-      "title": "Nature Boy: A journey of birdsong and belonging",
-      "author": "Seán Ronayne",
-      "link": "https://www.goodreads.com/review/show/8991722178?utm_medium=api&utm_source=rss",
-      "rating": 0,
-      "review": "",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1772685495l/223296179._SY475_.jpg",
-      "averageRating": 3
-    },
-    {
       "title": "Dr. Fun Guy's Passport to Kingdom Fungi: A Scientist's Guide to the Wild and Wonderful World of Mushrooms, Molds, and More",
       "author": "Gordon Walker",
       "link": "https://www.goodreads.com/review/show/8681435665?utm_medium=api&utm_source=rss",
@@ -44,9 +35,27 @@
       "review": "",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729030237l/220266810._SX318_.jpg",
       "averageRating": 3.58
+    },
+    {
+      "title": "NRSV Bible: The Bible for Everyone: Trusted, Accurate, Readable",
+      "author": "Anonymous",
+      "link": "https://www.goodreads.com/review/show/3370035506?utm_medium=api&utm_source=rss",
+      "rating": 0,
+      "review": "",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352820531l/12917341.jpg",
+      "averageRating": 4.67
     }
   ],
   "recentReviews": [
+    {
+      "title": "Nature Boy: A journey of birdsong and belonging",
+      "author": "Seán Ronayne",
+      "link": "https://www.goodreads.com/review/show/8991722178?utm_medium=api&utm_source=rss",
+      "rating": 3,
+      "review": "",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1772685495l/223296179._SY475_.jpg",
+      "averageRating": 3
+    },
     {
       "title": "The Lion, the Witch and the Wardrobe (Chronicles of Narnia, #1)",
       "author": "C.S. Lewis",
@@ -91,15 +100,6 @@
       "review": "Though I had no prior particular interest in whaling and the history thereof; though I knew only of this book that it was roundly hailed as one of the...",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1494337870l/7845._SY475_.jpg",
       "averageRating": 3.48
-    },
-    {
-      "title": "Alexander the Great: His Life and His Mysterious Death",
-      "author": "Anthony Everitt",
-      "link": "https://www.goodreads.com/review/show/8657224765?utm_medium=api&utm_source=rss",
-      "rating": 3,
-      "review": "This is the third biography by Anthony Everitt I have listened to, after Cicero: The Life and Times of Rome's Greatest Politician and Augustus: The Li...",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567497816l/50074921._SX318_SY475_.jpg",
-      "averageRating": 3.74
     }
   ]
 }
