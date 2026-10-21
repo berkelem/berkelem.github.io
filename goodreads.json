@@ -1,6 +1,15 @@
 {
   "currentlyReading": [
     {
+      "title": "Ordinary Saints",
+      "author": "Niamh Ni Mhaoileoin",
+      "link": "https://www.goodreads.com/review/show/9042633874?utm_medium=api&utm_source=rss",
+      "rating": 0,
+      "review": "",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1748126966l/221133694._SY475_.jpg",
+      "averageRating": 4.05
+    },
+    {
       "title": "Dr. Fun Guy's Passport to Kingdom Fungi: A Scientist's Guide to the Wild and Wonderful World of Mushrooms, Molds, and More",
       "author": "Gordon Walker",
       "link": "https://www.goodreads.com/review/show/8681435665?utm_medium=api&utm_source=rss",
@@ -35,15 +44,6 @@
       "review": "",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729030237l/220266810._SX318_.jpg",
       "averageRating": 3.58
-    },
-    {
-      "title": "NRSV Bible: The Bible for Everyone: Trusted, Accurate, Readable",
-      "author": "Anonymous",
-      "link": "https://www.goodreads.com/review/show/3370035506?utm_medium=api&utm_source=rss",
-      "rating": 0,
-      "review": "",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352820531l/12917341.jpg",
-      "averageRating": 4.67
     }
   ],
   "recentReviews": [
