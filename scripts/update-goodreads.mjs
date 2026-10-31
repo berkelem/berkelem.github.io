@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+
 const GOODREADS_USER_ID = '6157820-matthew';
 const FEED_BASE_URL = `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}`;
 
@@ -42,23 +44,33 @@ function parseGoodreadsFeed(xml) {
     });
 }
 
-async function fetchShelf(shelf, limit) {
-    const url = `${FEED_BASE_URL}?shelf=${encodeURIComponent(shelf)}&per_page=${limit}`;
-    const response = await fetch(url, {
-        headers: { 'User-Agent': 'berkelem.github.io Goodreads snapshot updater' },
-        signal: AbortSignal.timeout(20000)
-    });
+async function fetchShelf(shelf, limit, previousBooks) {
+    try {
+        const url = `${FEED_BASE_URL}?shelf=${encodeURIComponent(shelf)}&per_page=${limit}`;
+        const response = await fetch(url, {
+            headers: { 'User-Agent': 'berkelem.github.io Goodreads snapshot updater' },
+            signal: AbortSignal.timeout(20000)
+        });
 
-    if (!response.ok) {
-        throw new Error(`Goodreads ${shelf} feed returned HTTP ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`Goodreads ${shelf} feed returned HTTP ${response.status}`);
+        }
+
+        return parseGoodreadsFeed(await response.text());
+    } catch (error) {
+        if (!previousBooks) {
+            throw error;
+        }
+
+        console.warn(`Unable to update Goodreads ${shelf} shelf; keeping the previous snapshot: ${error.message}`);
+        return previousBooks;
     }
-
-    return parseGoodreadsFeed(await response.text());
 }
 
+const previousData = JSON.parse(await readFile(new URL('../goodreads.json', import.meta.url), 'utf8'));
 const [currentlyReading, recentReviews] = await Promise.all([
-    fetchShelf('currently-reading', 5),
-    fetchShelf('read', 6)
+    fetchShelf('currently-reading', 5, previousData.currentlyReading),
+    fetchShelf('read', 6, previousData.recentReviews)
 ]);
 
 process.stdout.write(`${JSON.stringify({ currentlyReading, recentReviews }, null, 2)}\n`);

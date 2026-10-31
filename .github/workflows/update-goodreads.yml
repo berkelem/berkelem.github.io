@@ -21,7 +21,9 @@ jobs:
           node-version: 20
 
       - name: Fetch Goodreads shelves
-        run: node scripts/update-goodreads.mjs > goodreads.json
+        run: |
+          node scripts/update-goodreads.mjs > goodreads.json.tmp
+          mv goodreads.json.tmp goodreads.json
 
       - name: Commit updated data
         run: |
