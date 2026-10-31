@@ -396,7 +396,8 @@ const publications = [
         label: 'Journal article',
         title: 'LEMMIv2: benchmarking framework for metagenomic and 16S amplicon profilers with a catalogue of evaluated tools',
         venue: 'Genome Biology',
-        url: 'https://doi.org/10.1186/s13059-026-04089-9'
+        url: 'https://doi.org/10.1186/s13059-026-04089-9',
+        pdf: 'publications/2026-Berkeley-LEMMIv2-Genome-Biology.pdf'
     },
     {
         year: 2024,
@@ -404,7 +405,8 @@ const publications = [
         label: 'Journal article',
         title: 'OrthoDB and BUSCO update: annotation of orthologs with wider sampling of genomes',
         venue: 'Nucleic Acids Research',
-        url: 'https://doi.org/10.1093/nar/gkae987'
+        url: 'https://doi.org/10.1093/nar/gkae987',
+        pdf: 'publications/2024-Berkeley-OrthoDB-BUSCO-NAR.pdf'
     },
     {
         year: 2022,
@@ -413,7 +415,7 @@ const publications = [
         title: 'OrthoDB v11: annotation of orthologs in the widest sampling of organismal diversity',
         venue: 'Nucleic Acids Research',
         url: 'https://doi.org/10.1093/nar/gkac998',
-        pdf: 'https://academic.oup.com/nar/article-pdf/51/D1/D445/48441631/gkac998.pdf'
+        pdf: 'publications/2022-Berkeley-OrthoDB-v11-NAR.pdf'
     },
     {
         year: 2022,
@@ -430,7 +432,7 @@ const publications = [
         title: 'BUSCO Update: Novel and Streamlined Workflows along with Broader and Deeper Phylogenetic Coverage for Scoring of Eukaryotic, Prokaryotic, and Viral Genomes',
         venue: 'Molecular Biology and Evolution',
         url: 'https://doi.org/10.1093/molbev/msab199',
-        pdf: 'https://academic.oup.com/mbe/article-pdf/38/10/4647/40449445/msab199.pdf'
+        pdf: 'publications/2021-Berkeley-BUSCO-Update-MBE.pdf'
     },
     {
         year: 2021,
@@ -439,7 +441,7 @@ const publications = [
         title: 'BUSCO: Assessing Genomic Data Quality and Beyond',
         venue: 'Current Protocols',
         url: 'https://doi.org/10.1002/cpz1.323',
-        pdf: 'https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cpz1.323'
+        pdf: 'publications/2021-Berkeley-BUSCO-Current-Protocols.pdf'
     },
     {
         year: 2020,
@@ -448,7 +450,7 @@ const publications = [
         title: 'OrthoDB in 2020: evolutionary and functional annotations of orthologs',
         venue: 'Nucleic Acids Research',
         url: 'https://doi.org/10.1093/nar/gkaa1009',
-        pdf: 'https://academic.oup.com/nar/article-pdf/49/D1/D389/35363966/gkaa1009.pdf'
+        pdf: 'publications/2020-Berkeley-OrthoDB-NAR.pdf'
     },
     {
         year: 2019,
@@ -465,7 +467,7 @@ const publications = [
         title: 'SiAl alloy feedhorn arrays: material properties, feedhorn design, and astrophysical applications',
         venue: 'Millimeter, Submillimeter, and Far-Infrared Detectors and Instrumentation for Astronomy XI',
         url: 'https://doi.org/10.1117/12.2312817',
-        pdf: 'https://arxiv.org/pdf/1807.03398',
+        pdf: 'publications/2018-Berkeley-SiAl-Feedhorn-arXiv.pdf',
         pdfLabel: 'arXiv preprint'
     },
     {
@@ -491,7 +493,7 @@ const publications = [
         title: 'The X-ray luminosity functions of field low-mass X-ray binaries in early-type galaxies: Evidence for a stellar age dependence',
         venue: 'The Astrophysical Journal',
         url: 'https://doi.org/10.1088/0004-637X/789/1/52',
-        pdf: 'https://iopscience.iop.org/article/10.1088/0004-637X/789/1/52/pdf'
+        pdf: 'publications/2014-Berkeley-X-ray-LMXB-ApJ.pdf'
     },
     {
         year: 2014,
@@ -560,20 +562,41 @@ function renderPublications() {
         actions.appendChild(publicationLink);
 
         if (publication.pdf) {
-            const viewLink = document.createElement('a');
-            viewLink.href = publication.pdf;
-            viewLink.target = '_blank';
-            viewLink.rel = 'noopener noreferrer';
-            viewLink.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> View PDF';
-            actions.appendChild(viewLink);
+            const viewerId = `publication-viewer-${publication.year}-${publications.indexOf(publication)}`;
+            const viewButton = document.createElement('button');
+            viewButton.type = 'button';
+            viewButton.setAttribute('aria-expanded', 'false');
+            viewButton.setAttribute('aria-controls', viewerId);
+            viewButton.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> View PDF';
+            actions.appendChild(viewButton);
+
+            const viewer = document.createElement('div');
+            viewer.className = 'publication-viewer';
+            viewer.id = viewerId;
+            viewer.hidden = true;
+
+            const frame = document.createElement('iframe');
+            frame.title = `PDF preview: ${publication.title}`;
+            frame.loading = 'lazy';
+            viewer.appendChild(frame);
 
             const downloadLink = document.createElement('a');
             downloadLink.href = publication.pdf;
-            downloadLink.target = '_blank';
-            downloadLink.rel = 'noopener noreferrer';
-            downloadLink.download = `${publication.year}-publication.pdf`;
+            downloadLink.download = publication.pdf.split('/').pop();
             downloadLink.innerHTML = `<i class="fas fa-download" aria-hidden="true"></i> Download ${publication.pdfLabel || 'PDF'}`;
             actions.appendChild(downloadLink);
+
+            viewButton.addEventListener('click', () => {
+                const isExpanded = viewButton.getAttribute('aria-expanded') === 'true';
+                viewButton.setAttribute('aria-expanded', String(!isExpanded));
+                viewer.hidden = isExpanded;
+                viewButton.innerHTML = `<i class="fas fa-file-pdf" aria-hidden="true"></i> ${isExpanded ? 'View PDF' : 'Hide PDF'}`;
+                if (!isExpanded && !frame.src) {
+                    frame.src = publication.pdf;
+                }
+            });
+
+            detail.appendChild(viewer);
         }
 
         detail.append(title, venue, label, actions);

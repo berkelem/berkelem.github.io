@@ -1738,6 +1738,23 @@ section {
         font-size: 0.85rem;
     }
 
+    .publication-viewer {
+        margin-top: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: #e8ebea;
+    }
+
+    .publication-viewer iframe {
+        display: block;
+        width: 100%;
+        height: min(68vh, 620px);
+        min-height: 360px;
+        border: 0;
+        background: #e8ebea;
+    }
+
     .visually-hidden {
         position: absolute;
         width: 1px;
@@ -1778,6 +1795,11 @@ section {
 
         .publication-year {
             font-size: 0.95rem;
+        }
+
+        .publication-viewer iframe {
+            height: min(68vh, 560px);
+            min-height: 320px;
         }
 
     }
